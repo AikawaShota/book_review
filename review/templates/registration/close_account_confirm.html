@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>本当に退会しますか?</h1>
+<p>
+    退会をするとログインが出来なくなります。
+</p>
+{% if user.is_authenticated %}
+    <button type="button"><a href="{% url 'accounts:close_account' %}" class="btn">退会</a></button>
+{% endif %}
+<button type="button"><a href="{% url 'accounts:account' %}" class="btn">戻る</a></button>
+{% endblock %}

@@ -1,0 +1,521 @@
+/* Google fontsの読み込み(Noto Sans JP, Noto Serif JP, Fira Sans) */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital@0;1&family=Noto+Sans+JP&family=Noto+Serif+JP&display=swap');
+
+/*====================
+layout
+====================*/
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "Noto Sans JP", serif;
+    height: 100%;
+}
+
+.fira_sans {
+    font-family: "Fira Sans", sans-serif;
+}
+
+
+/*====================
+header
+====================*/
+.global_nav_container {
+    font-family: "Fira Sans", sans-serif;
+    background-color: #404040;
+    color: #fffff9;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*
+nav {
+  margin: auto 0;
+}
+
+nav ul{
+  display: inline-block;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 0 40px;
+}
+*/
+.app_name {
+    margin: 0 auto 0 0;
+    display: inline-block;
+    font-family: "Fira Sans:ital", "Fira Sans", sans-serif;
+    font-style: italic;
+}
+
+.logo {
+    margin: 15px auto 15px 0;
+}
+
+.header_contents {
+    color: #fffff9;
+    text-decoration: none;
+}
+
+.registration {
+    font-family: "Fira Sans", sans-serif;
+    background-color: #606060;
+    color: #fffff9;
+    padding: 10px 20px 10px 10px;
+}
+
+.registration ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+    margin: 0;
+}
+
+.registration ul li {
+    padding: 0 40px;
+}
+
+.registration-item {
+    color: #fffff9;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/*====================
+hamburger
+====================*/
+/*ハンバーガーアイコン*/
+.btn-burger {
+    cursor: pointer;
+    display: block;
+    width: 56px;
+    height: 60px;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+/*ハンバーガーアイコンを作る三本線*/
+.icon, .icon:before, .icon:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 2px; /*線の太さ*/
+    width: 35px; /*線の長さ*/
+    background-color: #fffff9;
+    border-radius: 2px;
+    display: block;
+    content: "";
+    cursor: pointer;
+    margin: auto;
+}
+
+/*三本線の間隔*/
+.icon:before {
+    position: relative;
+    top: 15px;
+}
+
+.icon:after {
+    position: relative;
+    top: -15px;
+}
+
+/*チェックボックス非表示*/
+.nav-toggle {
+    display: none;
+}
+
+/*アイコンをクリックしたら*/
+.nav-toggle:checked ~ .btn-burger .icon {
+    background: transparent;
+}
+
+.nav-toggle:checked ~ .btn-burger .icon:before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.nav-toggle:checked ~ .btn-burger .icon:after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.icon,
+.icon:before,
+.icon:after {
+    transition: all .8s;
+}
+
+/*表示されるメニューの中身*/
+.nav {
+    background-color: #404040;
+}
+
+.nav-list a {
+    display: block;
+    text-decoration: none;
+    color: #fffff9;
+}
+
+.nav-list {
+    list-style: none;
+    display: none;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.nav-list li {
+    margin: 0;
+    padding: 10px;
+}
+
+.nav-toggle:checked ~ .nav .nav-list {
+    display: block;
+}
+
+
+/*====================
+main
+====================*/
+main {
+    margin-top: 50px;
+}
+
+.table_of_contents {
+    width: 100%;
+    max-width: 768px;
+    margin: auto;
+}
+
+.table_of_contents h1 {
+    text-align: center;
+}
+
+.table_of_contents p {
+    line-height: 1.8em;
+}
+
+button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+form {
+    display: inline-block;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.container {
+    width: 70%;
+    margin: auto;
+}
+
+.review-title {
+    display: block;
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+    font-size: 20px;
+    color: #444;
+    text-decoration: none;
+}
+
+.review-title:hover {
+    background-color: #eee;
+}
+
+.writer {
+    float: right;
+    color: #a0a0a0;
+}
+
+.help_text {
+    color: #a0a0a0;
+}
+
+.content_table {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.content_table th {
+    position: relative;
+    text-align: left;
+    width: 25%;
+}
+
+.content_table th:after {
+    display: block;
+    content: "";
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    position: absolute;
+    top: calc(50% - 1px);
+    right: 0;
+}
+
+.content_table td {
+    text-align: left;
+    padding: 7px 0 7px 30px;
+    width: 75%;
+}
+
+/*====================
+form
+====================*/
+.form_table {
+    width: 100%;
+}
+
+.form_table th {
+    position: relative;
+    text-align: left;
+    width: 25%;
+}
+
+.form_table td {
+    text-align: left;
+    padding: 7px 0 7px 30px;
+    width: 75%;
+}
+
+#id_title, #id_nickname, #id_email, #id_writer, #id_tag, #id_username, #id_password {
+    width: 260px;
+    height: 30px;
+}
+
+#id_summary, #id_review, #id_contact {
+    width: 280px;
+}
+
+/*====================
+footer
+====================*/
+footer {
+    color: #fffff9;
+    position: sticky;
+    top: 100vh;
+    width: 100%;
+    background: #404040;
+    padding: 20px;
+}
+
+#copy {
+    margin: 0;
+    text-align: center;
+}
+
+/*====================
+rating-star
+====================*/
+.star5_rating {
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    white-space: nowrap;
+    color: #CCCCCC; /* グレーカラー 自由に設定化 */
+    font-size: 30px; /*フォントサイズ 自由に設定化 */
+}
+
+.star5_rating:before, .star5_rating:after {
+    content: '★★★★★';
+}
+
+.star5_rating:after {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #ffcf32; /* イエローカラー 自由に設定化 */
+}
+
+.star5_rating[data-rate="5"]:after {
+    width: 100%;
+}
+
+/* 星5 */
+.star5_rating[data-rate="4.5"]:after {
+    width: 90%;
+}
+
+/* 星4.5 */
+.star5_rating[data-rate="4"]:after {
+    width: 80%;
+}
+
+/* 星4 */
+.star5_rating[data-rate="3.5"]:after {
+    width: 70%;
+}
+
+/* 星3.5 */
+.star5_rating[data-rate="3"]:after {
+    width: 60%;
+}
+
+/* 星3 */
+.star5_rating[data-rate="2.5"]:after {
+    width: 50%;
+}
+
+/* 星2.5 */
+.star5_rating[data-rate="2"]:after {
+    width: 40%;
+}
+
+/* 星2 */
+.star5_rating[data-rate="1.5"]:after {
+    width: 30%;
+}
+
+/* 星1.5 */
+.star5_rating[data-rate="1"]:after {
+    width: 20%;
+}
+
+/* 星1 */
+.star5_rating[data-rate="0.5"]:after {
+    width: 10%;
+}
+
+/* 星0.5 */
+.star5_rating[data-rate="0"]:after {
+    width: 0;
+}
+
+/* 星0 */
+
+#rating {
+    margin-bottom: 25px;
+}
+
+/* --------------------------------------------------
+  幅768px以上のスタイル指定 ここから
+-------------------------------------------------- */
+@media screen and (min-width: 768px) {
+    /* ハンバーガーボタン */
+    .btn-burger {
+        display: none; /*768px以上では使用しない */
+    }
+
+    .nav-toggle:checked ~ .nav .nav-list {
+        display: none;
+    }
+
+    .nav {
+        height: 75px;
+    }
+
+    .nav-list {
+        display: flex;
+        justify-content: center;
+        height: 75px;
+        align-items: center;
+    }
+
+    .nav-list li:not(:last-child) {
+        border-right: 1px solid #fff;
+    }
+
+    /* formのテキストエリアの幅 */
+    #id_summary, #id_review, #id_contact {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        margin: 0 5px;
+    }
+
+    .nav {
+        padding: 25px;
+        border: solid #fffff9;
+    }
+
+    table {
+        display: block;
+        width: 100%;
+    }
+
+    table tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table tr {
+        display: block;
+        width: 100%;
+    }
+
+    table th {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+    }
+
+    .form_table td {
+    text-align: left;
+    padding: 7px 0 7px 0;
+    width: 75%;
+    }
+
+    .content_table th:after {
+        display: None;
+    }
+
+    .btn-burger {
+        position: absolute;
+        top: 15px;
+        right: 18px;
+    }
+
+    .ellipsis {
+        display: inline-block;
+        width: 14ch; /* 省略せずに表示するサイズを指定 */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .review-title {
+        display: block;
+        border-bottom: 1px solid #ddd;
+        padding: 20px 20px 30px 20px;
+        font-size: 20px;
+        color: #444;
+        text-decoration: none;
+    }
+
+    .header_contents{
+        display: inline-block;
+        width: 10ch; /* 省略せずに表示するサイズを指定 */
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .app_name{
+        white-space: nowrap;
+        width: 100%;
+    }
+}

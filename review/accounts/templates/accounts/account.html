@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+    <p>下記ボタンを押すと退会確認ページへ遷移します。</p>
+    <button type="button"><a href="{% url 'accounts:close_account_confirm' %}" class="btn">退会</a></button>
+    <p>下記ボタンからパスワード変更を行うことができます。</p>
+    <button type="button"><a href="{% url 'password_change_form' %}" class="btn">パスワード変更</a></button>
+{% endif %}
+
+
+{% endblock %}

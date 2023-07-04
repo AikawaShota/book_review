@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<!--<form method="POST">-->
+<form method="POST">
+{% csrf_token %}
+    <!-- {{ form.as_p }} -->
+    <table class="form_table">
+        <tr>
+            <th>件名</th>
+            <td>{{ form.title }}<br><small class="help_text">件名を入力してください。</small></td>
+        </tr>
+        <tr>
+            <th>お問合せ内容</th>
+            <td>{{ form.contact }}<br><small class="help_text">お問合せ内容を入力してください。</small></td>
+        </tr>
+        <tr>
+            <th>ニックネーム</th>
+            <td>{{ form.nickname }}<br><small class="help_text">お問合せに使用する名前を入力してください。</small></td>
+        </tr>
+        <tr>
+            <th>メールアドレス</th>
+            <td>{{ form.email }}<br><small class="help_text">こちらのメールアドレスに返信します。</small></td>
+        </tr>
+        <tr>
+            <th>同じ内容を受け取る</th>
+            <td>{{ form.myself }}<br><small class="help_text">チェック時、上記のメールアドレスにお問合せ内容を送信いたします。</small></td>
+        </tr>
+    </table>
+    <button class="btn" type="submit">送信</button>
+</form>
+
+{% endblock %}

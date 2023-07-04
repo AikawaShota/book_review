@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<button type="button"><a href="{% url 'app:index' %}" class="btn">戻る</a></button>
+
+<table class="content_table">
+    <tr>
+        <th>タイトル</th>
+        <td>{{ object.title }}</td>
+    </tr>
+    <tr>
+        <th>著者</th>
+        <td>{{ object.writer }}</td>
+    </tr>
+    <tr>
+        <th>日本十進分類法</th>
+        <td>{{ object.ndc }}</td>
+    </tr>
+    <tr>
+        <th>タグ</th>
+        <td>{{ object.tag }}</td>
+    </tr>
+    <tr>
+        <th>あらすじ</th>
+        <td>{{ object.summary | linebreaks | urlize }}</td>
+    </tr>
+    <tr>
+        <th>評価</th>
+        <td>{{ object.review | linebreaks | urlize }}</td>
+    </tr>
+    <tr>
+        <th>点数</th>
+        <td><p id="rating"><span class="star5_rating" data-rate="0"></span>({{object.rating}})</p></td>
+    </tr>
+    <tr>
+        <th>投稿者名</th>
+        <td>{{ object.poster }}</td>
+    </tr>
+</table>
+
+{% if request.user.id == object.poster_id %}
+    <button type="button"><a class="btn" href="{% url 'app:edit_review' object.pk %}">編集</a></button>
+    <button type="button"><a class="btn" href="{% url 'app:delete_review' object.pk %}">削除</a></button>
+{% endif %}
+<!--
+<form action="{% url 'app:delete_review' object.pk %}" method="post">
+    {% csrf_token %}
+    <button class="btn" type="submit" onclick='return confirm("本当に削除しますか?");'>削除</button>
+</form>
+-->
+<script>
+    let element = document.getElementsByClassName('star5_rating')[0];
+    element.dataset.rate = {{object.rating}};
+</script>
+
+{% endblock %}

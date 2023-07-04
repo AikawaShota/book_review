@@ -1,0 +1,41 @@
+{% extends 'layout.html'%}
+
+{% block content %}
+<div>
+    <button type="button"><a class="btn" href="{% url 'app:index' %}">戻る</a></button>
+</div>
+<form action="{% url 'app:new_review' %}" method="POST">
+    {% csrf_token %}
+    <table class="form_table">
+        <tr>
+            <th>タイトル</th>
+            <td>{{ form.title }}</td>
+        </tr>
+        <tr>
+            <th>著者</th>
+            <td>{{ form.writer }}</td>
+        </tr>
+        <tr>
+            <th>日本十進分類法</th>
+            <td>{{ form.ndc }}</td>
+        </tr>
+        <tr>
+            <th>タグ</th>
+            <td>{{ form.tag }}</td>
+        </tr>
+        <tr>
+            <th>あらすじ</th>
+            <td>{{ form.summary }}</td>
+        </tr>
+        <tr>
+            <th>評価</th>
+            <td>{{ form.review }}</td>
+        </tr>
+        <tr>
+            <th>点数</th>
+            <td>{{ form.rating }}</td>
+        </tr>
+    </table>
+    <button type="submit" class="btn">保存</button>
+</form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+{% if user.is_authenticated %}
+    <button type="button"><a href="{% url 'app:new_review' %}" class="btn">新規作成</a></button>
+{% endif %}
+
+<article class="table_of_contents">
+    {% for object in object_list %}
+    {% if request.user.id == object.poster_id or not user.is_authenticated %}
+    <a href="{% url 'app:detail' object.pk %}" class="review-title">
+        <div>
+            <span class="ellipsis">{{ object.title }}</span>
+            <span class="writer">
+                <small class="ellipsis">{{ object.writer }}</small>
+            </span>
+        </div>
+    </a>
+    {% endif %}
+    {% endfor %}
+</article>
+
+{% endblock %}

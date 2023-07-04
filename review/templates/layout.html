@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Plainly-Book-Review</title>
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <meta name="description" content="本のレビューサイトです。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/sanitize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<!----- header----->
+<header>
+    <div class="global_nav_container">
+        <a class="fira_sans app_name header_contents" href="/"><h2 class="logo">Plainly-Book-Review</h2></a>
+        <!-- ハンバーガーメニュー -->
+        <div class="drawer">
+            <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+            <input type="checkbox" name="navToggle" id="navToggle" class="nav-toggle">
+            <!-- ハンバーガーメニューのアイコン -->
+            <label for="navToggle" class="btn-burger">
+                <span class="icon"></span>
+            </label>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a class="header_contents" href="{% url 'app:about' %}">About</a></li>
+                    <li><a class="header_contents" href="{% url 'app:how_to_use' %}">How to use</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a class="header_contents" href="{% url 'accounts:account' %}">Account</a></li>
+                    {% endif %}
+                    <li><a class="header_contents" href="{% url 'app:contact' %}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="registration">
+        <ul>
+            {% if user.is_authenticated %}
+            <li>
+                <span class='registration-item'>{{ user }} - </span>
+            </li>
+            <li>
+                <a href='{% url "logout" %}' class='registration-item'>Logout</a>
+            </li>
+            {% else %}
+            <li>
+                <a href='{% url "login" %}' class='registration-item'>Login</a>
+            </li>
+            <li>
+                <a href="{% url 'accounts:signup' %}" class="registration-item">Sign up</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</header>
+<!----- /header ----->
+
+<!----- main ----->
+<main>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</main>
+<!----- /main ----->
+
+<!----- footer ----->
+<footer>
+    <p id="copy"><small>&copy; 2022 AikawaShota</small></p>
+</footer>
+<!----- /footer ----->
+</body>
+</html>
