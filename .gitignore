@@ -161,3 +161,4 @@ cython_debug/
 
 # User add
 admin_user.txt
+myvenv2
