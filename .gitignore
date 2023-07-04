@@ -163,3 +163,4 @@ cython_debug/
 admin_user.txt
 myvenv2
 .DS_Store
+.settings.py
